@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Drift into deep sleep with calming sleep stories and soundscapes. Explore free bedtime stories designed for relaxation and better rest at Whispers Before Sleep.">
+    <meta name="robots" content="index, follow">
+    <title>Sleep Stories for Deep Relaxation | Whispers Before Sleep</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://whispersbeforesleep.netlify.app/">
+    <meta property="og:title" content="Sleep Stories for Deep Relaxation | Whispers Before Sleep">
+    <meta property="og:description" content="Calming stories and soundscapes to help you sleep better. Discover our collection for peaceful nights.">
+    <meta property="og:image" content="https://whispersbeforesleep.netlify.app/images/hero-image.jpg"> <!-- Add a hero image to /images/ -->
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sleep Stories for Deep Relaxation | Whispers Before Sleep">
+    <meta name="twitter:description" content="Calming stories and soundscapes to help you sleep better. Discover our collection for peaceful nights.">
+    <meta name="twitter:image" content="https://whispersbeforesleep.netlify.app/images/hero-image.jpg">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://whispersbeforesleep.netlify.app/">
+    <!-- Schema JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Whispers Before Sleep",
+      "url": "https://whispersbeforesleep.netlify.app/",
+      "description": "Calming sleep stories and soundscapes for better rest.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://whispersbeforesleep.netlify.app/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>    <title>Whispers Before Sleep | Sleep Stories</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --bg-deep: #0f172a;
+            --bg-card: #1e293b;
+            --bg-player: #020617;
+            --primary: #818cf8;
+            --accent: #c084fc;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --font-heading: 'Merriweather', serif;
+            --font-body: 'Lato', sans-serif;
+            --max-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-deep); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; padding-bottom: 100px; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+        
+        .btn {
+            display: inline-block; padding: 10px 24px; border-radius: 50px; font-weight: 700;
+            letter-spacing: 0.5px; cursor: pointer; transition: var(--transition); border: 1px solid transparent;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; box-shadow: 0 4px 15px rgba(129, 140, 248, 0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(129, 140, 248, 0.5); }
+        
+        .tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 4px; background: rgba(255,255,255,0.1); color: var(--text-muted); }
+
+        /* Header */
+        header { padding: 20px 0; position: sticky; top: 0; background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .logo svg { fill: var(--primary); width: 24px; height: 24px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: var(--text-muted); font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* Hero */
+        .hero { padding: 80px 0; text-align: center; background: radial-gradient(circle at center, #1e293b 0%, #0f172a 70%); }
+        .hero h1 { font-family: var(--font-heading); font-size: 3rem; margin-bottom: 20px; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 30px; }
+
+        /* Filter */
+        .filter-bar { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .filter-btn { background: transparent; border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); padding: 8px 20px; border-radius: 20px; cursor: pointer; transition: var(--transition); }
+        .filter-btn:hover, .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* Grid */
+        .stories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        
+        .story-card { background: var(--bg-card); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: var(--transition); position: relative; display: flex; flex-direction: column; }
+        .story-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); border-color: rgba(129, 140, 248, 0.3); }
+        
+        /* Image Container */
+        .card-image { 
+            position: relative; 
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0; 
+            background: #000;
+        }
+        
+        .card-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+        .card-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.85rem; color: var(--text-muted); }
+        .card-title { font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 10px; line-height: 1.4; }
+        .card-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; flex: 1; }
+        .card-footer { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .duration { display: flex; align-items: center; gap: 5px; font-size: 0.85rem; color: var(--primary); }
+        .play-btn { color: var(--primary); font-size: 0.9rem; font-weight: 700; cursor: pointer; }
+
+        /* Player & Footer */
+        .sticky-player { position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg-player); border-top: 1px solid rgba(255,255,255,0.1); padding: 15px 0; z-index: 1000; backdrop-filter: blur(10px); }
+        .player-content { display: flex; align-items: center; justify-content: space-between; }
+        .now-playing { display: flex; align-items: center; gap: 15px; }
+        .now-playing img { width: 50px; height: 50px; border-radius: 6px; object-fit: cover; }
+        .track-info h4 { font-size: 0.95rem; margin-bottom: 2px; }
+        .track-info span { font-size: 0.8rem; color: var(--text-muted); }
+        .player-controls { display: flex; align-items: center; gap: 20px; }
+        .play-pause-large { width: 40px; height: 40px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bg-deep); border: none; cursor: pointer; }
+        
+        footer { text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.9rem; margin-top: 60px; }
+
+        /* Loading State */
+        #loading { text-align: center; padding: 50px; color: var(--text-muted); font-size: 1.2rem; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+            .track-info { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <svg viewBox="0 0 24 24"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
+                    Whispers Before Sleep
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Read Stories</a></li>
+                </ul>
+		<ul class="social-links" style="display: flex; gap: 15px; margin-left: 15px; margin-right: 10px;"><li><a href="https://facebook.com/profile.php?id=61585221177810" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--text-muted)"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a></li><li><a href="https://x.com/whisepers" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--text-muted)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li><li><a href="https://pin.it/62ChyPenm" target="_blank"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--text-muted)"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.063-4.882-5.006-4.882-3.404 0-5.404 2.558-5.404 5.212 0 1.029.397 2.136.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.791 2.75-7.27 7.943-7.27 4.17 0 7.407 2.973 7.407 6.929 0 4.136-2.607 7.464-6.215 7.464-1.223 0-2.373-.637-2.767-1.394l-.753 2.87c-.27 1.04-1.002 2.349-1.492 3.146.466.143.96.22 1.475.22 6.628 0 12-5.372 12-12 0-6.627-5.373-12-12-12z"/></svg></a></li></ul>
+
+                <a href="https://youtube.com/@whispersbeforesleep-v8?si=ur5rQwHikTjSNvB8" class="btn btn-primary">Subscribe</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Drift into a Deep Sleep</h1>
+                <p>Calming stories and soundscapes designed to quiet your mind.</p>
+                <div class="filter-bar" id="filter-container">
+                    <!-- Filters will be injected here via JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div id="loading">Loading dreams...</div>
+            <div class="stories-grid" id="stories-grid">
+                <!-- Stories will be injected here via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Sticky Player -->
+    <div class="sticky-player">
+        <div class="container player-content">
+            <div class="now-playing">
+                <img src="https://picsum.photos/seed/forest/100/100" alt="Track">
+                <div class="track-info">
+                    <h4>Select a Story</h4>
+                    <span>Ready to play</span>
+                </div>
+            </div>
+            <div class="player-controls">
+                <button class="play-pause-large">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Player Iframe -->
+    <div id="player-iframe" style="display: none;"></div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Whispers Before Sleep. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- YouTube Iframe API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // ==========================================
+        // CONFIGURATION
+        // ==========================================
+        
+        // PASTE YOUR GOOGLE SHEET ID HERE
+        const SHEET_ID = '1YO4VdB70-RJow7NDBjGG2ZbL1Wr-4IK34Klq9meo7xM'; 
+        
+        // We use a free service called 'opensheet.elk.sh' to turn the sheet into JSON
+        const API_URL = `https://opensheet.elk.sh/${SHEET_ID}/stories`;
+
+        // ==========================================
+        // APP LOGIC
+        // ==========================================
+
+        const grid = document.getElementById('stories-grid');
+        const filterContainer = document.getElementById('filter-container');
+        const loading = document.getElementById('loading');
+        let allStories = [];
+
+        // YouTube Player Variables
+        let player;
+        let currentVideoId = '';
+        let isPlaying = false;
+        const playButton = document.querySelector('.play-pause-large');
+        const playSvg = playButton.querySelector('svg');
+
+        // Helper: Extract YouTube ID from any URL format
+        function getYouTubeId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        // Load Story into Player
+        function loadStory(story) {
+            const videoId = getYouTubeId(story.youtube_link);
+            if (!videoId) return;
+
+            currentVideoId = videoId;
+            player.loadVideoById(videoId);
+
+            // Update now-playing info
+            document.querySelector('.now-playing img').src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+            document.querySelector('.track-info h4').textContent = story.title;
+            document.querySelector('.track-info span').textContent = story.category;
+
+            // Auto-play if not playing
+            if (!isPlaying) {
+                togglePlay();
+            }
+        }
+
+        // Toggle Play/Pause
+        function togglePlay() {
+            if (!currentVideoId) return;
+
+            if (isPlaying) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+
+            isPlaying = !isPlaying;
+
+            // Update button SVG
+            if (isPlaying) {
+                playSvg.innerHTML = '<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>';
+            } else {
+                playSvg.innerHTML = '<path d="M8 5v14l11-7z"/>';
+            }
+        }
+
+        // YouTube API Ready
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player-iframe', {
+                height: '0',
+                width: '0',
+                videoId: '',
+                playerVars: {
+                    'autoplay': 0,
+                    'controls': 0
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Player is ready
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                isPlaying = false;
+                playSvg.innerHTML = '<path d="M8 5v14l11-7z"/>';
+            }
+        }
+
+        // Attach event to play button
+        playButton.addEventListener('click', togglePlay);
+
+        // 1. Fetch Data
+        async function fetchStories() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) throw new Error("Failed to load stories");
+                allStories = await response.json();
+                
+                loading.style.display = 'none';
+                renderStories(allStories);
+                generateFilters(allStories);
+            } catch (error) {
+                loading.textContent = "Error loading stories. Please check your Sheet ID.";
+                console.error(error);
+            }
+        }
+
+        // 2. Render Cards
+        function renderStories(stories) {
+            grid.innerHTML = '';
+            stories.forEach(story => {
+                // Get the YouTube ID from the link
+                const videoId = getYouTubeId(story.youtube_link);
+                
+                // Get thumbnail
+                const thumbnail = videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : 'https://picsum.photos/seed/placeholder/300/169';
+
+                const card = document.createElement('article');
+                card.className = 'story-card';
+                card.innerHTML = `
+                    <div class="card-image">
+                        <img src="${thumbnail}" alt="${story.title}" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="tag">${story.category}</span>
+                        </div>
+                        <h3 class="card-title">${story.title}</h3>
+                        <p class="card-desc">${story.description}</p>
+                        <div class="card-footer">
+                            <div class="duration">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm1-8h3v2h-5V7h2v5z"/></svg>
+                                ${story.duration}
+                            </div>
+                            <span class="play-btn">Play &rarr;</span>
+                            <a href="${story.youtube_link}" target="_blank" style="color: var(--primary); font-size: 0.9rem; font-weight: 700;">Watch on YT &rarr;</a>
+                        </div>
+                    </div>
+                `;
+
+                // Add click event to play button
+                const playBtn = card.querySelector('.play-btn');
+                playBtn.addEventListener('click', () => loadStory(story));
+
+                grid.appendChild(card);
+            });
+        }
+
+        // 3. Generate Filters Dynamically
+        function generateFilters(stories) {
+            // Get unique categories
+            const categories = ['all', ...new Set(stories.map(s => s.category.toLowerCase()))];
+            
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `filter-btn ${cat === 'all' ? 'active' : ''}`;
+                btn.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
+                btn.onclick = () => filterStories(cat, btn);
+                filterContainer.appendChild(btn);
+            });
+        }
+
+        // 4. Filter Logic
+        function filterStories(category, clickedBtn) {
+            // Update active button state
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            clickedBtn.classList.add('active');
+
+            // Filter data
+            if (category === 'all') {
+                renderStories(allStories);
+            } else {
+                const filtered = allStories.filter(s => s.category.toLowerCase() === category);
+                renderStories(filtered);
+            }
+        }
+
+        // Initialize
+        fetchStories();
+    </script>
+</body>
+</html>
